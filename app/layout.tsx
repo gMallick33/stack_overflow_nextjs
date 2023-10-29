@@ -40,8 +40,6 @@ export default function RootLayout({
       }}
     >
       <html lang="en">
-        <h1 className="h1-bold">Hello next.js</h1>
-
         <body>
           <ThemeProvider>{children}</ThemeProvider>
         </body>
