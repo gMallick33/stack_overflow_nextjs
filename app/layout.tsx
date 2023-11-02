@@ -18,7 +18,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Next.js 13 with clerk",
+  title: "Devoverflow",
   description:
     "A community driven platform for discussing technologies, questioning, answering, sharing knowledge and collaborating with developers from around the world.",
   icons: {
@@ -40,7 +40,7 @@ export default function RootLayout({
       }}
     >
       <html lang="en">
-        <body>
+        <body className={`${inter.variable} ${spaceGrotesk.variable}`}>
           <ThemeProvider>{children}</ThemeProvider>
         </body>
       </html>
