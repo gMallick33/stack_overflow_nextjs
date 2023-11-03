@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { SignedIn, UserButton } from "@clerk/nextjs";
 import Theme from "./Theme";
+import NavbarMobile from "./NavbarMobile";
 const Navbar = () => {
   return (
     <nav
@@ -40,6 +41,8 @@ const Navbar = () => {
             }}
           ></UserButton>
         </SignedIn>
+        <NavbarMobile />
+        {/* Hello */}
       </div>
     </nav>
   );
