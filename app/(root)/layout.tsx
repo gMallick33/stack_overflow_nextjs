@@ -1,4 +1,5 @@
 import LeftSideBar from "@/components/shared/LeftSideBar";
+import RightSideBar from "@/components/shared/RightSideBar";
 import Navbar from "@/components/shared/navbar/Navbar";
 import React from "react";
 
@@ -17,7 +18,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           <div className="mx-auto w-full max-w-5xl">{children}</div>
         </section>
         {/** RightSideBar */}
-        RightSideBar
+        <RightSideBar />
       </div>
 
       {/** Toaster */}
