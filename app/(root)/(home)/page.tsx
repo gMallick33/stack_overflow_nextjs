@@ -1,4 +1,8 @@
+import HomeFilters from "@/components/home/HomeFilters";
+import Filter from "@/components/shared/Filter";
+import LocalSearchBar from "@/components/shared/search/LocalSearchBar";
 import { Button } from "@/components/ui/button";
+import { HomePageFilters } from "@/constants/filters";
 import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 
@@ -16,6 +20,23 @@ export default function Home() {
           </Button>
         </Link>
       </div>
+
+      <div className="mt-11 flex justify-between gap-5 max-sm:flex-col sm:items-center">
+        <LocalSearchBar
+          route="/"
+          iconPosition="left"
+          imgSrc="https://upload.wikimedia.org/wikipedia/commons/7/70/Search_icon.svg"
+          placeholder="Search for question"
+          otherClasses="flex-1"
+        />
+
+        <Filter
+          filters={HomePageFilters}
+          otherClasses="min-h-[56px] sm:min-w-[170px]"
+          containerClasses="hidden max-md:flex"
+        />
+      </div>
+      <HomeFilters />
     </div>
   );
 }
