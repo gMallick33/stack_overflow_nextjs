@@ -1,10 +1,66 @@
+import QuestionCard from "@/components/cards/QuestionCard";
 import HomeFilters from "@/components/home/HomeFilters";
 import Filter from "@/components/shared/Filter";
+import NoResult from "@/components/shared/NoResult";
 import LocalSearchBar from "@/components/shared/search/LocalSearchBar";
 import { Button } from "@/components/ui/button";
 import { HomePageFilters } from "@/constants/filters";
 import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
+
+const questions = [
+  {
+    _id: "1",
+    title: "how to use express?",
+    tags: [
+      { _id: "1", name: "express" },
+      { _id: "2", name: "js" },
+    ],
+    author: {
+      _id: "1",
+      name: "John Doe",
+      picture: "john-doe-picture-url",
+    },
+    upvotes: 1000040,
+    views: 1002121441,
+    answers: [],
+    createdAt: new Date("2022-09-01T12:00:00.000Z"),
+  },
+  {
+    _id: "2",
+    title: "how to use app router?",
+    tags: [
+      { _id: "1", name: "express" },
+      { _id: "2", name: "js" },
+    ],
+    author: {
+      _id: "2",
+      name: "Rocky Bhai",
+      picture: "rocky-bhai-picture-url",
+    },
+    upvotes: 182212,
+    views: 23050584,
+    answers: [],
+    createdAt: new Date("2023-11-01T12:00:00.000Z"),
+  },
+  {
+    _id: "3",
+    title: "is next js any good?",
+    tags: [
+      { _id: "1", name: "nextjs" },
+      { _id: "2", name: "js" },
+    ],
+    author: {
+      _id: "3",
+      name: "Rambo Rao",
+      picture: "rambo-rao-picture-url",
+    },
+    upvotes: 1200,
+    views: 788927,
+    answers: [],
+    createdAt: new Date("2023-08-01T12:00:00.000Z"),
+  },
+];
 
 export default function Home() {
   return (
@@ -37,6 +93,33 @@ export default function Home() {
         />
       </div>
       <HomeFilters />
+
+      <div className="mt-10 flex w-full flex-col gap-6"></div>
+
+      {questions.length > 0 ? (
+        questions.map((question) => (
+          <QuestionCard
+            key={question._id}
+            _id={question._id}
+            title={question.title}
+            tags={question.tags}
+            author={question.author}
+            upvotes={question.upvotes}
+            views={question.views}
+            answers={question.answers}
+            createdAt={question.createdAt}
+          />
+        ))
+      ) : (
+        <NoResult
+          title="There is no question to show"
+          description="Be the first to break the silence? Ask a Question and kickstart the
+        discussion. our query could be the next big thing others learn from. Get
+        involved!"
+          link="/ask-question"
+          linkTitle="Ask a Question"
+        />
+      )}
     </div>
   );
 }

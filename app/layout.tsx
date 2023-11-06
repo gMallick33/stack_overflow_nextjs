@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   description:
     "A community driven platform for discussing technologies, questioning, answering, sharing knowledge and collaborating with developers from around the world.",
   icons: {
-    icon: "/public/assets/images/site-logo.svg",
+    icon: "/assets/images/site-logo.svg",
   },
 };
 export default function RootLayout({
