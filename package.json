@@ -23,6 +23,8 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-tailwindcss": "^3.13.0",
     "lucide-react": "^0.291.0",
+    "mongodb": "^6.2.0",
+    "mongoose": "^8.0.0",
     "next": "14.0.0",
     "prettier": "^3.0.3",
     "react": "^18",
