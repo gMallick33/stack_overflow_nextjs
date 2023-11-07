@@ -5,6 +5,7 @@ import NoResult from "@/components/shared/NoResult";
 import LocalSearchBar from "@/components/shared/search/LocalSearchBar";
 import { Button } from "@/components/ui/button";
 import { HomePageFilters } from "@/constants/filters";
+import { getQuestions } from "@/lib/actions/question.action";
 import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 
@@ -62,7 +63,10 @@ const questions = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const result = await getQuestions({});
+  // console.log(result.questions);
+
   return (
     <div>
       <div
@@ -96,8 +100,8 @@ export default function Home() {
 
       <div className="mt-10 flex w-full flex-col gap-6"></div>
 
-      {questions.length > 0 ? (
-        questions.map((question) => (
+      {result.questions.length > 0 ? (
+        result.questions.map((question) => (
           <QuestionCard
             key={question._id}
             _id={question._id}

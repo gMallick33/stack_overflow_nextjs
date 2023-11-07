@@ -5,7 +5,7 @@ import Metric from "../shared/Metric";
 import { formatBigNumber, getTimeStamp } from "@/lib/utils";
 
 interface QuestionProps {
-  _id: number;
+  _id: number | string;
   title: string;
   tags: {
     _id: string;
