@@ -62,7 +62,7 @@ const LeftSideBar = () => {
                   min-h-[41px] w-full rounded-lg px-4 py-3"
             >
               <Image
-                src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Google_account_icon.svg"
+                src="/assets/icons/user.svg"
                 alt="signin"
                 width={20}
                 height={20}
@@ -80,7 +80,7 @@ const LeftSideBar = () => {
                   light-border-2 text-dark400_light900 min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none"
             >
               <Image
-                src="https://upload.wikimedia.org/wikipedia/commons/9/9f/New_user_icon-01.svg"
+                src="/assets/icons/account.svg"
                 alt="signup"
                 width={20}
                 height={20}

@@ -28,7 +28,7 @@ const Theme = () => {
         >
           {mode === "light" ? (
             <Image
-              src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Sun_icon.svg"
+              src="/assets/icons/sun.svg"
               alt="sun"
               width={20}
               height={20}
@@ -36,7 +36,7 @@ const Theme = () => {
             />
           ) : (
             <Image
-              src="https://upload.wikimedia.org/wikipedia/commons/7/7e/640-crescent-moon.svg"
+              src="/assets/icons/moon.svg"
               alt="moon"
               width={20}
               height={20}

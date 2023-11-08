@@ -14,9 +14,9 @@ const Navbar = () => {
     >
       <Link href="/" className="flex items-center gap-1">
         <Image
-          src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Stack_Overflow_icon.svg"
-          width={35}
-          height={35}
+          src="/assets/icons/site-logo.svg"
+          width={26}
+          height={26}
           alt="DevOverflow"
         />
         <p

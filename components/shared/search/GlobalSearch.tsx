@@ -12,7 +12,7 @@ const GlobalSearch = () => {
         relative flex min-h-[56px] grow items-center rounded-xl px-4"
       >
         <Image
-          src="https://upload.wikimedia.org/wikipedia/commons/7/70/Search_icon.svg"
+          src="/assets/icons/search.svg"
           alt="search"
           width={24}
           height={24}

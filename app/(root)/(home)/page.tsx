@@ -85,7 +85,7 @@ export default async function Home() {
         <LocalSearchBar
           route="/"
           iconPosition="left"
-          imgSrc="https://upload.wikimedia.org/wikipedia/commons/7/70/Search_icon.svg"
+          imgSrc="/assets/icons/search.svg"
           placeholder="Search for question"
           otherClasses="flex-1"
         />

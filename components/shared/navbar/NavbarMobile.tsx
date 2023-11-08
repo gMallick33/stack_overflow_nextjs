@@ -60,7 +60,7 @@ const NavbarMobile = () => {
     <Sheet>
       <SheetTrigger asChild>
         <Image
-          src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Stack_Overflow_icon.svg"
+          src="/assets/icons/hamburger.svg"
           width={36}
           height={36}
           alt="Menu"
