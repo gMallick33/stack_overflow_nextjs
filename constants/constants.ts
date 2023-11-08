@@ -4,17 +4,17 @@ export const themes = [
   {
     value: "light",
     label: "Light",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Sun_icon.svg",
+    icon: "/assets/icons/sun.svg",
   },
   {
     value: "dark",
     label: "Dark",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/7/7e/640-crescent-moon.svg",
+    icon: "/assets/icons/moon.svg",
   },
   {
     value: "system",
     label: "System",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/b/b2/Gnome-computer.svg",
+    icon: "/assets/icons/computer.svg",
   },
 ];
 
