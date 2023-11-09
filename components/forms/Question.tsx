@@ -49,9 +49,8 @@ const Question = ({ mongoUserId }: Props) => {
   async function onSubmit(values: z.infer<typeof QuestionsSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    // console.log("before: ", isSubmitting);
     setIsSubmitting(true);
-    // console.log("after: ", isSubmitting);
+
     try {
       // make an async call to api -> create a question in the backend
       // contain all form data
