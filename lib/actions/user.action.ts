@@ -6,11 +6,12 @@ import {
   CreateUserParams,
   DeleteUserParams,
   UpdateUserParams,
+  GetUserByIdParams,
 } from "./shared.types";
 import { revalidatePath } from "next/cache";
 import Question from "@/database/question.model";
 
-export async function getUserById(params) {
+export async function getUserById(params: GetUserByIdParams) {
   try {
     connectToDatabase();
     const { userId } = params;
