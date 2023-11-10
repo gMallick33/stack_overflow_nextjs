@@ -7,8 +7,12 @@ export default authMiddleware({
     "/profile",
     "/jobs",
     "/community",
-    "/tags",
+    "/tags(.*)",
     "/collection",
+    "/ask-question",
+    "/sign-in",
+    "/sign-up",
+    "/question(.*)",
   ],
 });
 
