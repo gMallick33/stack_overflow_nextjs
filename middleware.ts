@@ -5,14 +5,16 @@ export default authMiddleware({
     "/api/webhooks(.*)",
     "/",
     "/profile/:id",
+    "/profile",
     "/jobs",
     "/community",
     "/tags/:id",
+    "/tags",
     "/collection",
     "/ask-question",
     "/sign-in",
     "/sign-up",
-    "/question/:id",
+    "/questions/:id",
   ],
 });
 
