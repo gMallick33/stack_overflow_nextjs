@@ -3,7 +3,7 @@ import React from "react";
 import { Badge } from "../ui/badge";
 
 interface Props {
-  _id: string;
+  _id: string | number;
   name: string;
   totalQuestions?: number;
   showCount?: boolean;
