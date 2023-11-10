@@ -15,6 +15,7 @@ export default authMiddleware({
     "/sign-in",
     "/sign-up",
     "/questions/:id",
+    "/api/webhook",
   ],
 });
 
