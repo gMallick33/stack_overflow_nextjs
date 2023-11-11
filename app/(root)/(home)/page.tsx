@@ -64,7 +64,8 @@ const questions = [
 ];
 
 export default async function Home() {
-  const result = await getQuestions({});
+  // const result = await getQuestions({});
+  const result = { questions: [] };
   // console.log(result.questions);
   return (
     <div>
