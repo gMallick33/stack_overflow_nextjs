@@ -8,7 +8,7 @@ export interface IUser extends Document {
   password?: string;
   bio?: string;
   picture: string;
-  location: string;
+  location?: string;
   portfolioWebsite?: string;
   reputation?: number;
   saved: Schema.Types.ObjectId[];
