@@ -5,6 +5,7 @@ import React from "react";
 import { getUserById } from "@/lib/actions/user.action";
 const page = async () => {
   // const { userId } = auth();
+  // console.log("xxxxxxxxxxxxx: ", userId);
   const userId = "123456";
   if (!userId) redirect("/sign-in");
 
