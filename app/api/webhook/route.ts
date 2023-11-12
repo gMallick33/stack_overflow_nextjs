@@ -56,6 +56,7 @@ export async function POST(req: Request) {
   const eventType = evt.type;
 
   if (eventType === "user.created") {
+    console.log("event: user created");
     const { id, email_addresses, image_url, username, first_name, last_name } =
       evt.data;
 
@@ -72,6 +73,7 @@ export async function POST(req: Request) {
   }
 
   if (eventType === "user.updated") {
+    console.log("event: user updated");
     const { id, email_addresses, image_url, username, first_name, last_name } =
       evt.data;
 
@@ -91,6 +93,7 @@ export async function POST(req: Request) {
   }
 
   if (eventType === "user.deleted") {
+    console.log("event: user deleted");
     const { id } = evt.data;
     const deletedUser = await deleteUser({
       clerkId: id!,
