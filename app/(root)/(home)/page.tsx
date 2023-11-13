@@ -6,74 +6,16 @@ import LocalSearchBar from "@/components/shared/search/LocalSearchBar";
 import { Button } from "@/components/ui/button";
 import { HomePageFilters } from "@/constants/filters";
 import { getQuestions } from "@/lib/actions/question.action";
-import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
-
-const questions = [
-  {
-    _id: "1",
-    title: "how to use express?",
-    tags: [
-      { _id: "1", name: "express" },
-      { _id: "2", name: "js" },
-    ],
-    author: {
-      _id: "1",
-      name: "John Doe",
-      picture: "john-doe-picture-url",
-    },
-    upvotes: 1000040,
-    views: 1002121441,
-    answers: [],
-    createdAt: new Date("2022-09-01T12:00:00.000Z"),
-  },
-  {
-    _id: "2",
-    title: "how to use app router?",
-    tags: [
-      { _id: "1", name: "express" },
-      { _id: "2", name: "js" },
-    ],
-    author: {
-      _id: "2",
-      name: "Rocky Bhai",
-      picture: "rocky-bhai-picture-url",
-    },
-    upvotes: 182212,
-    views: 23050584,
-    answers: [],
-    createdAt: new Date("2023-11-01T12:00:00.000Z"),
-  },
-  {
-    _id: "3",
-    title: "is next js any good?",
-    tags: [
-      { _id: "1", name: "nextjs" },
-      { _id: "2", name: "js" },
-    ],
-    author: {
-      _id: "3",
-      name: "Rambo Rao",
-      picture: "rambo-rao-picture-url",
-    },
-    upvotes: 1200,
-    views: 788927,
-    answers: [],
-    createdAt: new Date("2023-08-01T12:00:00.000Z"),
-  },
-];
 
 export default async function Home() {
   const result = await getQuestions({});
-  // const result = { questions: [] };
-  // console.log(result.questions);
+
   return (
-    <div>
-      <div
-        className="flex w-full flex-col-reverse 
-    justify-between gap-4 sm:flex-row sm:items-center"
-      >
+    <>
+      <div className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center">
         <h1 className="h1-bold text-dark100_light900">All Questions</h1>
+
         <Link href="/ask-question" className="flex justify-end max-sm:w-full">
           <Button className="primary-gradient min-h-[46px] px-4 py-3 !text-light-900">
             Ask a Question
@@ -86,7 +28,7 @@ export default async function Home() {
           route="/"
           iconPosition="left"
           imgSrc="/assets/icons/search.svg"
-          placeholder="Search for question"
+          placeholder="Search for questions"
           otherClasses="flex-1"
         />
 
@@ -96,34 +38,33 @@ export default async function Home() {
           containerClasses="hidden max-md:flex"
         />
       </div>
+
       <HomeFilters />
 
-      <div className="mt-10 flex w-full flex-col gap-6"></div>
-
-      {result.questions.length > 0 ? (
-        result.questions.map((question) => (
-          <QuestionCard
-            key={question._id}
-            _id={question._id}
-            title={question.title}
-            tags={question.tags}
-            author={question.author}
-            upvotes={question.upvotes}
-            views={question.views}
-            answers={question.answers}
-            createdAt={question.createdAt}
+      <div className="mt-10 flex w-full flex-col gap-6">
+        {result.questions.length > 0 ? (
+          result.questions.map((question) => (
+            <QuestionCard
+              key={question._id}
+              _id={question._id}
+              title={question.title}
+              tags={question.tags}
+              author={question.author}
+              upvotes={question.upvotes}
+              views={question.views}
+              answers={question.answers}
+              createdAt={question.createdAt}
+            />
+          ))
+        ) : (
+          <NoResult
+            title="There’s no question to show"
+            description="Be the first to break the silence! 🚀 Ask a Question and kickstart the discussion. our query could be the next big thing others learn from. Get involved! 💡"
+            link="/ask-question"
+            linkTitle="Ask a Question"
           />
-        ))
-      ) : (
-        <NoResult
-          title="There is no question to show"
-          description="Be the first to break the silence? Ask a Question and kickstart the
-        discussion. our query could be the next big thing others learn from. Get
-        involved!"
-          link="/ask-question"
-          linkTitle="Ask a Question"
-        />
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 }

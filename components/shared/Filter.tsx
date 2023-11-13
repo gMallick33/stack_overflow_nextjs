@@ -1,6 +1,5 @@
-"use select";
+"use client";
 
-import React from "react";
 import {
   Select,
   SelectContent,
@@ -15,8 +14,8 @@ interface Props {
     name: string;
     value: string;
   }[];
-  otherClasses: string;
-  containerClasses: string;
+  otherClasses?: string;
+  containerClasses?: string;
 }
 
 const Filter = ({ filters, otherClasses, containerClasses }: Props) => {

@@ -1,6 +1,6 @@
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 
 interface MetricProps {
   imgUrl: string;
@@ -21,7 +21,7 @@ const Metric = ({
   textStyles,
   isAuthor,
 }: MetricProps) => {
-  const matricContent = (
+  const metricContent = (
     <>
       <Image
         src={imgUrl}
@@ -30,6 +30,7 @@ const Metric = ({
         alt={alt}
         className={`object-contain ${href ? "rounded-full" : ""}`}
       />
+
       <p className={`${textStyles} flex items-center gap-1`}>
         {value}
 
@@ -46,13 +47,13 @@ const Metric = ({
 
   if (href) {
     return (
-      <Link href={href} className="flex-center gap-1">
-        {matricContent}
+      <Link href={href} className="flex-center  gap-1">
+        {metricContent}
       </Link>
     );
   }
 
-  return <div className="flex-center flex-wrap gap-1">{matricContent}</div>;
+  return <div className="flex-center flex-wrap gap-1">{metricContent}</div>;
 };
 
 export default Metric;

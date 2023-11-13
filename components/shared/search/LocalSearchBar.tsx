@@ -1,15 +1,15 @@
 "use client";
 
-import React from "react";
-import Image from "next/image";
 import { Input } from "@/components/ui/input";
+import Image from "next/image";
+import React from "react";
 
 interface CustomInputProps {
   route: string;
   iconPosition: string;
   imgSrc: string;
   placeholder: string;
-  otherClasses: string;
+  otherClasses?: string;
 }
 
 const LocalSearchBar = ({
@@ -38,8 +38,7 @@ const LocalSearchBar = ({
         placeholder={placeholder}
         value=""
         onChange={() => {}}
-        className="paragraph-regular no-focus placeholder text-dark400_light700
-        background-light800_darkgradient border-none shadow-none outline-none"
+        className="paragraph-regular no-focus placeholder background-light800_darkgradient border-none shadow-none outline-none"
       />
 
       {iconPosition === "right" && (

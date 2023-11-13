@@ -1,11 +1,9 @@
 "use client";
-
 import React, { useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
 import * as z from "zod";
-import { Button } from "@/components/ui/button";
+import { useForm } from "react-hook-form";
 import {
   Form,
   FormControl,
@@ -16,6 +14,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Button } from "../ui/button";
 import { QuestionsSchema } from "@/lib/validations";
 import { Badge } from "../ui/badge";
 import Image from "next/image";
@@ -31,7 +30,6 @@ interface Props {
 const Question = ({ mongoUserId }: Props) => {
   const editorRef = useRef(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   const router = useRouter();
   const pathname = usePathname();
 
@@ -47,15 +45,11 @@ const Question = ({ mongoUserId }: Props) => {
 
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof QuestionsSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    // console.log("before: ", isSubmitting);
     setIsSubmitting(true);
-    // console.log("after: ", isSubmitting);
+
     try {
-      // make an async call to api -> create a question in the backend
+      // make an async call to your API -> create a question
       // contain all form data
-      // navigate to home page
 
       await createQuestion({
         title: values.title,
@@ -65,6 +59,7 @@ const Question = ({ mongoUserId }: Props) => {
         path: pathname,
       });
 
+      // navigate to home page
       router.push("/");
     } catch (error) {
     } finally {
@@ -103,6 +98,7 @@ const Question = ({ mongoUserId }: Props) => {
 
   const handleTagRemove = (tag: string, field: any) => {
     const newTags = field.value.filter((t: string) => t !== tag);
+
     form.setValue("tags", newTags);
   };
 
@@ -122,14 +118,13 @@ const Question = ({ mongoUserId }: Props) => {
               </FormLabel>
               <FormControl className="mt-3.5">
                 <Input
-                  className="no-focus paragraph-regular background-light700_dark300
-                light-border-2 text-dark300_light900 min-h-[56px] border"
+                  className="no-focus paragraph-regular background-light900_dark300 light-border-2 text-dark300_light700 min-h-[56px] border"
                   {...field}
                 />
               </FormControl>
               <FormDescription className="body-regular mt-2.5 text-light-500">
-                Be specific and imagine you are asking a question to another
-                person
+                Be specific and imagine you&apos;re asking a question to another
+                person.
               </FormDescription>
               <FormMessage className="text-red-500" />
             </FormItem>
@@ -176,7 +171,7 @@ const Question = ({ mongoUserId }: Props) => {
                     ],
                     toolbar:
                       "undo redo | " +
-                      "codesample | bold italic forecolor | alignleft aligncenter " +
+                      "codesample | bold italic forecolor | alignleft aligncenter |" +
                       "alignright alignjustify | bullist numlist",
                     content_style: "body { font-family:Inter; font-size:16px }",
                   }}
@@ -184,7 +179,7 @@ const Question = ({ mongoUserId }: Props) => {
               </FormControl>
               <FormDescription className="body-regular mt-2.5 text-light-500">
                 Introduce the problem and expand on what you put in the title.
-                Minimum 100 characters.
+                Minimum 20 characters.
               </FormDescription>
               <FormMessage className="text-red-500" />
             </FormItem>
@@ -201,9 +196,8 @@ const Question = ({ mongoUserId }: Props) => {
               <FormControl className="mt-3.5">
                 <>
                   <Input
-                    className="no-focus paragraph-regular background-light700_dark300
-                light-border-2 text-dark300_light900 min-h-[56px] border"
-                    placeholder="Add tags"
+                    className="no-focus paragraph-regular background-light900_dark300 light-border-2 text-dark300_light700 min-h-[56px] border"
+                    placeholder="Add tags..."
                     onKeyDown={(e) => handleInputKeyDown(e, field)}
                   />
 
@@ -212,15 +206,13 @@ const Question = ({ mongoUserId }: Props) => {
                       {field.value.map((tag: any) => (
                         <Badge
                           key={tag}
-                          className="subtle-medium background-light800_dark300
-                        text-light400_light500 flex items-center justify-center
-                        gap-2 rounded-md border-none px-4 py-2 capitalize"
+                          className="subtle-medium background-light800_dark300 text-light400_light500 flex items-center justify-center gap-2 rounded-md border-none px-4 py-2 capitalize"
                           onClick={() => handleTagRemove(tag, field)}
                         >
                           {tag}
                           <Image
                             src="/assets/icons/close.svg"
-                            alt="close icon"
+                            alt="Close icon"
                             width={12}
                             height={12}
                             className="cursor-pointer object-contain invert-0 dark:invert"
@@ -241,12 +233,11 @@ const Question = ({ mongoUserId }: Props) => {
         />
         <Button
           type="submit"
-          className="primary-gradient w-fit
-        !text-light-900"
+          className="primary-gradient w-fit !text-light-900"
           disabled={isSubmitting}
         >
           {isSubmitting ? (
-            <>{type === "edit" ? "Editing ..." : "Posting ..."}</>
+            <>{type === "edit" ? "Editing..." : "Posting..."}</>
           ) : (
             <>{type === "edit" ? "Edit Question" : "Ask a Question"}</>
           )}
