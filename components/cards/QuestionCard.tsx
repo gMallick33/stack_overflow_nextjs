@@ -70,7 +70,7 @@ const QuestionCard = ({
         />
 
         <Metric
-          imgUrl="assets/icons/like.svg"
+          imgUrl="/assets/icons/like.svg"
           value={formatBigNumber(upvotes)}
           alt="upvotes"
           title=" Votes"
@@ -78,7 +78,7 @@ const QuestionCard = ({
         />
 
         <Metric
-          imgUrl="assets/icons/message.svg"
+          imgUrl="/assets/icons/message.svg"
           value={formatBigNumber(answers.length)}
           alt="message"
           title=" Answers"
@@ -86,7 +86,7 @@ const QuestionCard = ({
         />
 
         <Metric
-          imgUrl="assets/icons/eye.svg"
+          imgUrl="/assets/icons/eye.svg"
           value={formatBigNumber(views)}
           alt="eye"
           title=" Views"
