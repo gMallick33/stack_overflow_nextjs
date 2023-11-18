@@ -1,5 +1,6 @@
 "use client";
 
+import { downvoteAnswer, upvoteAnswer } from "@/lib/actions/answer.action";
 import {
   downvoteQuestion,
   upvoteQuestion,
@@ -49,13 +50,13 @@ const Votes = ({
           path: pathname,
         });
       } else if (type === "Answer") {
-        // await upvoteAnswer({
-        //     questionId: JSON.parse(itemId),
-        //     userId: JSON.parse(userId),
-        //     hasupVoted,
-        //     hasdownVoted,
-        //     path: pathname,
-        //   });
+        await upvoteAnswer({
+          answerId: JSON.parse(itemId),
+          userId: JSON.parse(userId),
+          hasupVoted,
+          hasdownVoted,
+          path: pathname,
+        });
       }
 
       // TODO: show a toast
@@ -71,13 +72,13 @@ const Votes = ({
           path: pathname,
         });
       } else if (type === "Answer") {
-        // await downvoteAnswer({
-        //     questionId: JSON.parse(itemId),
-        //     userId: JSON.parse(userId),
-        //     hasupVoted,
-        //     hasdownVoted,
-        //     path: pathname,
-        //   });
+        await downvoteAnswer({
+          answerId: JSON.parse(itemId),
+          userId: JSON.parse(userId),
+          hasupVoted,
+          hasdownVoted,
+          path: pathname,
+        });
       }
 
       // TODO: show a toast
@@ -128,18 +129,20 @@ const Votes = ({
           </div>
         </div>
       </div>
-      <Image
-        src={
-          hasSaved
-            ? "/assets/icons/star-filled.svg"
-            : "/assets/icons/star-red.svg"
-        }
-        width={18}
-        height={18}
-        alt="star"
-        className="cursor-pointer"
-        onClick={handleSave}
-      />
+      {type === "Question" && (
+        <Image
+          src={
+            hasSaved
+              ? "/assets/icons/star-filled.svg"
+              : "/assets/icons/star-red.svg"
+          }
+          width={18}
+          height={18}
+          alt="star"
+          className="cursor-pointer"
+          onClick={handleSave}
+        />
+      )}
     </div>
   );
 };
