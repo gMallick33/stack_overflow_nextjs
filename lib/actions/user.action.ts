@@ -199,7 +199,11 @@ export async function getUserQuestions(params: GetUserStatsParams) {
     const userQuestions = await Question.find({ author: userId })
       .sort({ views: -1, upvotes: -1 })
       .populate({ path: "tags", model: Tag, select: "_id name" })
-      .populate({ path: "author", model: User, select: "_id name picture" });
+      .populate({
+        path: "author",
+        model: User,
+        select: "_id name clerkId picture",
+      });
 
     return { totalQuestions, questions: userQuestions };
   } catch (error) {
@@ -217,7 +221,11 @@ export async function getUserAnswers(params: GetUserStatsParams) {
     const userAnswers = await Answer.find({ author: userId })
       .sort({ upvotes: -1 })
       .populate({ path: "question", model: Question, select: "_id title" })
-      .populate({ path: "author", model: User, select: "_id name picture" });
+      .populate({
+        path: "author",
+        model: User,
+        select: "_id name clerkId picture",
+      });
 
     return { totalAnswers, answers: userAnswers };
   } catch (error) {
