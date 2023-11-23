@@ -2,17 +2,18 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import RenderTag from "./RenderTag";
+import { getHotQuestions } from "@/lib/actions/question.action";
 
-const topQuestions = [
-  { _id: 1, title: "how do I use express as a custom server in nextjs" },
-  { _id: 2, title: "is nextjs the next big revolution in fullstack" },
-  { _id: 3, title: "why is facebook not hiring in india" },
-  { _id: 4, title: "how is tesla re-inventing the wheel" },
-  {
-    _id: 5,
-    title: "google is offering me $350k, but I want $500k. How to tell them",
-  },
-];
+// const topQuestions = [
+//   { _id: 1, title: "how do I use express as a custom server in nextjs" },
+//   { _id: 2, title: "is nextjs the next big revolution in fullstack" },
+//   { _id: 3, title: "why is facebook not hiring in india" },
+//   { _id: 4, title: "how is tesla re-inventing the wheel" },
+//   {
+//     _id: 5,
+//     title: "google is offering me $350k, but I want $500k. How to tell them",
+//   },
+// ];
 
 const popularTags = [
   { _id: 1, name: "javascript", totalQuestions: 18 },
@@ -22,7 +23,9 @@ const popularTags = [
   { _id: 5, name: "app router", totalQuestions: 12 },
 ];
 
-const RightSideBar = () => {
+const RightSideBar = async () => {
+  const hotQuestions = await getHotQuestions();
+
   return (
     <section
       className="background-light900_dark200 light-border
@@ -33,9 +36,9 @@ const RightSideBar = () => {
       <div>
         <h3 className="h3-bold text-dark200_light900">Top Question</h3>
         <div className="mt-7 flex w-full flex-col gap-[30px]">
-          {topQuestions.map((question) => (
+          {hotQuestions.map((question) => (
             <Link
-              href={`questions/${question._id}`}
+              href={`question/${question._id}`}
               key={question._id}
               className="flex cursor-pointer items-center
                 justify-between gap-7"
