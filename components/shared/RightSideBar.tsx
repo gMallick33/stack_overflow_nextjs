@@ -3,28 +3,11 @@ import Link from "next/link";
 import React from "react";
 import RenderTag from "./RenderTag";
 import { getHotQuestions } from "@/lib/actions/question.action";
-
-// const topQuestions = [
-//   { _id: 1, title: "how do I use express as a custom server in nextjs" },
-//   { _id: 2, title: "is nextjs the next big revolution in fullstack" },
-//   { _id: 3, title: "why is facebook not hiring in india" },
-//   { _id: 4, title: "how is tesla re-inventing the wheel" },
-//   {
-//     _id: 5,
-//     title: "google is offering me $350k, but I want $500k. How to tell them",
-//   },
-// ];
-
-const popularTags = [
-  { _id: 1, name: "javascript", totalQuestions: 18 },
-  { _id: 2, name: "redux", totalQuestions: 7 },
-  { _id: 3, name: "nextjs", totalQuestions: 5 },
-  { _id: 4, name: "react", totalQuestions: 9 },
-  { _id: 5, name: "app router", totalQuestions: 12 },
-];
+import { getTopPopularTags } from "@/lib/actions/tag.action";
 
 const RightSideBar = async () => {
   const hotQuestions = await getHotQuestions();
+  const popularTags = await getTopPopularTags();
 
   return (
     <section
@@ -66,7 +49,7 @@ const RightSideBar = async () => {
               key={tag._id}
               _id={tag._id}
               name={tag.name}
-              totalQuestions={tag.totalQuestions}
+              totalQuestions={tag.numberOfQuestions}
               showCount
             />
           ))}
