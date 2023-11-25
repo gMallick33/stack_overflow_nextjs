@@ -11,6 +11,12 @@ import { SearchParamsProps } from "@/types";
 import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Home | DevOverflow",
+  description: "DevOverflow is a community of 1000 developers. Join us",
+};
+
 export default async function Home({ searchParams }: SearchParamsProps) {
   const result = await getQuestions({
     searchQuery: searchParams.q,
