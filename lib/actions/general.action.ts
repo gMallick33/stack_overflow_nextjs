@@ -35,7 +35,7 @@ export async function globalSearch(params: SearchParams) {
           .limit(2);
 
         results.push(
-          ...queryResults.map((item) => ({
+          ...queryResults.map((item: any) => ({
             title:
               type === "answer"
                 ? `Answers containing ${query}`
@@ -62,7 +62,7 @@ export async function globalSearch(params: SearchParams) {
         .find({ [modelInfo.searachField]: regexQuery })
         .limit(8);
 
-      results = queryResults.map((item) => ({
+      results = queryResults.map((item: any) => ({
         title:
           type === "answer"
             ? `Answers containing ${query}`
