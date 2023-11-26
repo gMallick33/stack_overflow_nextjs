@@ -1,7 +1,7 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import qs from "query-string";
-import { BADGE_CRITERIA } from "@/constants/constants";
+// import { BADGE_CRITERIA } from "@/constants/constants";
 import { BadgeCounts } from "@/types";
 
 export function cn(...inputs: ClassValue[]) {
@@ -118,7 +118,55 @@ export const assignBadges = (params: any) => {
   const { criteria } = params;
   criteria.forEach((item: any) => {
     const { type, count } = item;
-    const badgeLevels: any = BADGE_CRITERIA[type];
+    let badgeLevels: any;
+    switch (type) {
+      case "QUESTION_COUNT": {
+        badgeLevels = {
+          BRONZE: 10,
+          SILVER: 50,
+          GOLD: 100,
+        };
+        break;
+      }
+
+      case "ANSWER_COUNT": {
+        badgeLevels = {
+          BRONZE: 10,
+          SILVER: 50,
+          GOLD: 100,
+        };
+        break;
+      }
+
+      case "QUESTION_UPVOTES": {
+        badgeLevels = {
+          BRONZE: 10,
+          SILVER: 50,
+          GOLD: 100,
+        };
+        break;
+      }
+
+      case "ANSWER_UPVOTES": {
+        badgeLevels = {
+          BRONZE: 10,
+          SILVER: 50,
+          GOLD: 100,
+        };
+        break;
+      }
+
+      case "TOTAL_VIEWS": {
+        badgeLevels = {
+          BRONZE: 1000,
+          SILVER: 10000,
+          GOLD: 100000,
+        };
+        break;
+      }
+    }
+
+    // const badgeLevels: any = BADGE_CRITERIA[type];
 
     Object.keys(badgeLevels).forEach((level: any) => {
       if (count >= badgeLevels[level]) {
