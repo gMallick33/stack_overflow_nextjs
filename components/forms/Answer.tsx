@@ -12,6 +12,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { AnswerSchema } from "@/lib/validations";
 import { zodResolver } from "@hookform/resolvers/zod";
+// @ts-ignore
 import { Editor } from "@tinymce/tinymce-react";
 import { useTheme } from "@/context/ThemeProvider";
 import { Button } from "../ui/button";
@@ -136,12 +137,13 @@ const Answer = ({ question, questionId, authorId }: Props) => {
                 <FormControl className="mt-3.5">
                   <Editor
                     apiKey={process.env.NEXT_PUBLIC_TINY_EDITOR_API_KEY}
-                    onInit={(evt, editor) => {
+                    // @ts-ignore
+                    onInit={(evt, editor: any) => {
                       // @ts-ignore
                       editorRef.current = editor;
                     }}
                     onBlur={field.onBlur}
-                    onEditorChange={(content) => field.onChange(content)}
+                    onEditorChange={(content: any) => field.onChange(content)}
                     initialValue=""
                     init={{
                       height: 350,

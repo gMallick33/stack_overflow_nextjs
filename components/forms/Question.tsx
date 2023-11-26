@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useState } from "react";
+// @ts-ignore
 import { Editor } from "@tinymce/tinymce-react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -158,12 +159,13 @@ const Question = ({ mongoUserId, type, questionDetails }: Props) => {
               <FormControl className="mt-3.5">
                 <Editor
                   apiKey={process.env.NEXT_PUBLIC_TINY_EDITOR_API_KEY}
-                  onInit={(evt, editor) => {
+                  // @ts-ignore
+                  onInit={(evt, editor: any) => {
                     // @ts-ignore
                     editorRef.current = editor;
                   }}
                   onBlur={field.onBlur}
-                  onEditorChange={(content) => field.onChange(content)}
+                  onEditorChange={(content: any) => field.onChange(content)}
                   initialValue={parsedQuestionDetails?.content || ""}
                   init={{
                     height: 350,
