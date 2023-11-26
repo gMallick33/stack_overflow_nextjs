@@ -102,13 +102,13 @@ export function removeKeysFromQuery({
   );
 }
 
-interface BadgeParam {
-  criteria: {
-    type: keyof typeof BADGE_CRITERIA;
-    count: number;
-  }[];
-}
-export const assignBadges = (params: BadgeParam) => {
+// interface BadgeParam {
+//   criteria: {
+//     type: keyof typeof BADGE_CRITERIA;
+//     count: number;
+//   }[];
+// }
+export const assignBadges = (params: any) => {
   const badgeCount: BadgeCounts = {
     GOLD: 0,
     SILVER: 0,
@@ -116,7 +116,7 @@ export const assignBadges = (params: BadgeParam) => {
   };
 
   const { criteria } = params;
-  criteria.forEach((item) => {
+  criteria.forEach((item: any) => {
     const { type, count } = item;
     const badgeLevels: any = BADGE_CRITERIA[type];
 
