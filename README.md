@@ -36,7 +36,7 @@ You will be able to do the following jobs -
 
 ## Run Project
 
-- Go to `/dev-overflow` directory and execute `npm run dev` which should run the app on `http://localhost:3000`
+- Go to root directory and execute `npm run dev` which should run the app on `http://localhost:3000`
 
 ## Live website -
 
