@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Welcome to DevOverflow
 
-## Getting Started
+This is a web application for developer community across the globe.
+You will be able to do the following jobs -
 
-First, run the development server:
+1. Ask question
+2. Upvote / downvote / save question
+3. Answer the question.
+4. upvote / downvote answers
+5. Improve your profile by participating in all the activities.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Project Setup
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- clone the project on your local.
+- change the working directory to `dev-overflow` and execute `npm install`.
+- create `.env` file in the root directory of every micro-service and add the following environment variables
+  - NEXT*PUBLIC_CLERK_PUBLISHABLE_KEY=\_FROM CLERK WEBSITE*
+  - CLERK*SECRET_KEY=\_FROM CLERK WEBSITE*
+  - NEXT*PUBLIC_TINY_EDITOR_API_KEY=\_TINE EDITOR API KEY*
+  - MONGODB*URL= \_MONGODB URL FOR SETTING UP THE DATABASE*
+  - NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+  - NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+  - NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
+  - NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
+  - NEXT*CLERK_WEBHOOK_SECRET=\_KEY GENERATED FROM CLERK*
+  - NEXT_PUBLIC_SERVER_URL=http://localhost:3000
+  - OPENAI*API_KEY= \_OPENAI_API_KEY*
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### References to get the environment variables -
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Get `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` and `CLERK_SECRET_KEY` from `https://dashboard.clerk.com/` after adding application (which is just checking the boxes on google authentication and username)
+- visit `https://www.tiny.cloud/` and get `NEXT_PUBLIC_TINY_EDITOR_API_KEY` after signing up.
+- visit `https://www.mongodb.com/` sign up, make a database and get `MONGODB_URL` for the database
+- For `NEXT_CLERK_WEBHOOK_SECRET` follow the docs at `https://clerk.com/docs/integrations/webhooks`
+- visit `openai.com` signup and get open ai api key and assign it to `OPENAI_API_KEY`
 
-## Learn More
+## Run Project
 
-To learn more about Next.js, take a look at the following resources:
+- Go to `/dev-overflow` directory and execute `npm run dev` which should run the app on `http://localhost:3000`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Live website -
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- `https://stack-overflow-nextjs-sigma.vercel.app/`
 
-## Deploy on Vercel
+### TODO -
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- jobs page is work in progress
